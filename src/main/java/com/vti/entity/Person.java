@@ -26,17 +26,18 @@ public class Person implements Serializable {
 	@Column(name = "userName", length = 50, nullable = false)
 	private String userName;
 
-	@Column(name = "password", length = 50, nullable = false)
+	@Column(name = "password", length = 128, nullable = false)
 	private String password;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "role", nullable = false)
 	private RolePerson rolePerson = RolePerson.PLAYER;
+	
 	public Person() {
 	}
 
-	public Person(int userId, String userName, String password) {
-		this.userId = userId;
+
+	public Person(String userName, String password) {
 		this.userName = userName;
 		this.password = password;
 	}
@@ -73,9 +74,12 @@ public class Person implements Serializable {
 		this.password = password;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Users [userId=" + userId + ", userName=" + userName + ", password=" + password + "]";
+		return "Person [userId=" + userId + ", userName=" + userName + ", password=" + password + ", rolePerson="
+				+ rolePerson + "]";
 	}
 
+	
 }
