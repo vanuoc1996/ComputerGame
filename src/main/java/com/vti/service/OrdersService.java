@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.vti.Enum.OrderStatus;
 import com.vti.dto.OrdersCreatDTO;
 import com.vti.entity.Computer;
 import com.vti.entity.LineItem;
@@ -60,6 +61,21 @@ public class OrdersService implements IOrdersService {
 		computer = computerService.findByComputerId(ordersDTO.getComputerId());
 		playTime = new PlayTime(computer,player, orderId);
 		playTimeService.creatPlayTime(playTime);
+	}
+
+	@Override
+	public void payForOrder(int orderId) {
+		Orders order = ordersRepository.findById(orderId).get();
+		order.setOrderStatus(OrderStatus.PAID);
+		playTimeService.payForOrder(orderId);
+		ordersRepository.save(order);
+	}
+
+	@Override
+	public void setMoneyForOrder(int orderId, PlayTime playtime) {
+		Orders orders = ordersRepository.findById(orderId).get();
+		orders.setTotal(playtime.getPriceTotal());
+		ordersRepository.save(orders);
 	}
 
 }

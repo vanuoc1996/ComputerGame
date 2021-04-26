@@ -12,4 +12,10 @@ public interface IPlayTimeService {
 	List<PlayTime> getAllPlayTime();
 
 	public void creatPlayTime(PlayTime playTime);
+	
+	public void payForOrder(int orderId);
+	
+	public PlayTime findByOrderId(int orderId);
+	
+	public void setInfomationToPay(PlayTime playTime);
 }

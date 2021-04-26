@@ -32,7 +32,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //		.and()
 //		.httpBasic()
 //		.and()
-//		.csrf().disable();
+//		.csrf().disable(); 
 		
 	}
 } 

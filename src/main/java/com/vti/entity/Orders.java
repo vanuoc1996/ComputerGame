@@ -35,7 +35,7 @@ public class Orders implements Serializable {
 	private String createDate ;
 
 	@Column(name = "total")
-	private int total;
+	private long total;
 
 	@Column(name = "orderStatus")
 	private OrderStatus orderStatus = OrderStatus.UNPAID;
@@ -82,11 +82,11 @@ public class Orders implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public int getTotal() {
+	public long getTotal() {
 		return total;
 	}
 
-	public void setTotal(int total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 

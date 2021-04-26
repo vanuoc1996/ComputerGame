@@ -46,10 +46,10 @@ public class PlayTime implements Serializable {
 	private int pricePerHour = 8000;
 
 	@Column(name = "timeToPlay")
-	private int timeToPlay;
+	private long timeToPlay;
 
 	@Column(name = "priceTotal")
-	private int priceTotal;
+	private long priceTotal;
 
 	public PlayTime() {
 	}
@@ -119,19 +119,19 @@ public class PlayTime implements Serializable {
 		this.pricePerHour = pricePerHour;
 	}
 
-	public int getTimeToPlay() {
+	public long getTimeToPlay() {
 		return timeToPlay;
 	}
 
-	public void setTimeToPlay(int timeToPlay) {
+	public void setTimeToPlay(long timeToPlay) {
 		this.timeToPlay = timeToPlay;
 	}
 
-	public int getPriceTotal() {
+	public long getPriceTotal() {
 		return priceTotal;
 	}
 
-	public void setPriceTotal(int priceTotal) {
+	public void setPriceTotal(long priceTotal) {
 		this.priceTotal = priceTotal;
 	}
 }

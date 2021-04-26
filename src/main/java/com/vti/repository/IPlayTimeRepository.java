@@ -6,5 +6,5 @@ import com.vti.entity.PlayTime;
 
 @Repository
 public interface IPlayTimeRepository extends JpaRepository<PlayTime, Integer> {
-
+	public PlayTime findByOrderId(int orderId);
 }
